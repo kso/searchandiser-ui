@@ -1,0 +1,9 @@
+<template>
+  <h3 if="${title}">${title}</h3>
+
+  <div if.bind="component" class="jumbotron">
+    <div class="${component}${modifier ? '--' + modifier : ''}"></div>
+  </div>
+
+  <pre>${modifier ? structure[modifier] : structure}</pre>
+</template>

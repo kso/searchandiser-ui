@@ -1,0 +1,17 @@
+<template>
+
+  <compose view="elements/component-header.html" view-model.bind="name"></compose>
+
+  <compose view="components/examples/${example}"></compose>
+
+  <section>
+    <compose view="elements/component-demo.html" view-model.bind="{ structure, title: 'Riot Template', modifier: 'riot-template' }"></compose>
+
+    <compose view="elements/component-demo.html" view-model.bind="{ structure, title: 'Compiled HTML', modifier: 'compiled' }"></compose>
+  </section>
+
+  <compose view="elements/component-usage.html" view-model.bind="usage"></compose>
+
+  <compose view="elements/component-properties.html" view-model.bind="{ options }"></compose>
+
+</template>

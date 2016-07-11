@@ -1,0 +1,15 @@
+<template>
+
+  <compose view="elements/component-header.html" view-model.bind="name"></compose>
+
+  <section>
+    <compose view="elements/component-demo.html" view-model.bind="{ component: name.attach, structure, title: 'Native rendering', modifier: 'native' }"></compose>
+
+    <compose view="elements/component-demo.html" view-model.bind="{ component: name.attach, structure, title: 'Custom rendering', modifier: 'custom' }"></compose>
+  </section>
+
+  <compose view="elements/component-usage.html" view-model.bind="usage"></compose>
+
+  <compose view="elements/component-properties.html" view-model.bind="{ options }"></compose>
+
+</template>

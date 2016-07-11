@@ -1,0 +1,11 @@
+<template>
+  <tr>
+    <td css="padding-left: ${level * 15}px;">${key}</td>
+    <td>${type}</td>
+    <td>${default}</td>
+    <td>${description}</td>
+  </tr>
+  <template repeat.for="option of option.sub">
+    <compose view="elements/nested-table-row.html" view-model.bind="option | nested:level" containerless></compose>
+  </template>
+</template>
