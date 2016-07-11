@@ -37,7 +37,7 @@ export const OPTIONS = [
 ];
 
 @useView('components/template-component.html')
-export class QueryComponent extends SimpleComponent {
+export class RawQueryComponent extends SimpleComponent {
 
   constructor() {
     super({

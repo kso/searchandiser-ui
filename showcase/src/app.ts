@@ -14,6 +14,8 @@ export class App {
       { route: 'record-count', name: 'record-count', moduleId: './components/record-count', nav: true, title: 'Record Count' },
       { route: 'query', name: 'query', moduleId: './components/query', nav: true, title: 'Query' },
       { route: 'raw-query', name: 'raw-query', moduleId: './components/raw-query', nav: true, title: 'Raw Query' },
+      { route: 'details', name: 'details', moduleId: './components/details', nav: true, title: 'Details' },
+      { route: 'raw-results', name: 'raw-results', moduleId: './components/raw-results', nav: true, title: 'Raw Results' },
     ]);
 
     this.router = router;

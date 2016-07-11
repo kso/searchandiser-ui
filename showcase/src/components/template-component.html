@@ -2,7 +2,9 @@
 
   <compose view="elements/component-header.html" view-model.bind="name"></compose>
 
-  <compose view="components/examples/${example}"></compose>
+  <div class="jumbotron">
+    <compose view="components/examples/${example}"></compose>
+  </div>
 
   <section>
     <compose view="elements/component-demo.html" view-model.bind="{ structure, title: 'Riot Template', modifier: 'riot-template' }"></compose>
