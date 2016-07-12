@@ -1,11 +1,11 @@
-import {Aurelia} from 'aurelia-framework';
-import {Router, RouterConfiguration} from 'aurelia-router';
+import { Aurelia } from 'aurelia-framework';
+import { Router, RouterConfiguration } from 'aurelia-router';
 
 export class App {
   router: Router;
 
   configureRouter(config: RouterConfiguration, router: Router) {
-    config.title = 'Aurelia';
+    config.title = 'Searchandiser UI Showcase';
     config.map([
       { route: ['', 'welcome'], name: 'welcome', moduleId: './welcome', nav: true, title: 'Welcome' },
       { route: 'sort', name: 'sort', moduleId: './components/sort', nav: true, title: 'Sort' },
@@ -16,6 +16,10 @@ export class App {
       { route: 'raw-query', name: 'raw-query', moduleId: './components/raw-query', nav: true, title: 'Raw Query' },
       { route: 'details', name: 'details', moduleId: './components/details', nav: true, title: 'Details' },
       { route: 'raw-results', name: 'raw-results', moduleId: './components/raw-results', nav: true, title: 'Raw Results' },
+      { route: 'results', name: 'results', moduleId: './components/results', nav: true, title: 'Results' },
+      { route: 'related-searches', name: 'related-searches', moduleId: './components/related-searches', nav: true, title: 'Related Searches' },
+      { route: 'breadcrumbs', name: 'breadcrumbs', moduleId: './components/breadcrumbs', nav: true, title: 'Breadcrumbs' },
+      { route: 'did-you-mean', name: 'did-you-mean', moduleId: './components/did-you-mean', nav: true, title: 'Did You Mean' },
     ]);
 
     this.router = router;

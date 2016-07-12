@@ -1,18 +1,20 @@
 <template>
-  <h2>Configuration Options</h2>
-  <section if.bind="options">
-    <table class="table table-striped">
-      <tr>
-        <th>Property</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
+  <div if.bind="options">
+    <h2>Configuration Options</h2>
+    <section>
+      <table class="table table-striped">
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
 
-      <template repeat.for="option of options">
-        <compose view="elements/nested-table-row.html" view-model.bind="option | nested:0" containerless></compose>
-      </template>
+        <template repeat.for="option of options">
+          <compose view="elements/nested-table-row.html" view-model.bind="option | nested:0" containerless></compose>
+        </template>
 
-    </table>
-  </section>
+      </table>
+    </section>
+  </div>
 </template>

@@ -17,3 +17,5 @@ declare module 'system' {
     var System: System;
   }
 }
+
+declare var searchandiser;
