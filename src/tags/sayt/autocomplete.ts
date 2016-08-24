@@ -21,7 +21,7 @@ export class Autocomplete {
     // this.searchInput.addEventListener('keydown', (event) => this.keyListener(event));
   }
 
-  reset() {
+  resetSelected() {
     this.selected = this.searchInput;
   }
 
@@ -53,23 +53,17 @@ export class Autocomplete {
         }
         break;
       case KEY_ENTER:
-        event.preventDefault();
-        if (this.selected !== this.searchInput) {
-          (<HTMLElement>this.selected.firstElementChild).click();
-          this.removeActive();
-          this.reset();
-        }
         break;
       default:
-        this.removeActive();
-        this.reset();
+        this.removeActiveClass();
+        this.resetSelected();
         break;
     }
   }
 
   swap(next: HTMLElement) {
     if (next) {
-      this.removeActive();
+      this.removeActiveClass();
       next.classList.add(ACTIVE);
       if (next.getAttribute(DATA_VALUE)) this.tag.notifier(next.getAttribute(DATA_VALUE));
       return next;
@@ -77,8 +71,14 @@ export class Autocomplete {
     return this.selected;
   }
 
-  removeActive() {
+  removeActiveClass() {
     Array.from(this.tag.root.querySelectorAll('gb-sayt-autocomplete gb-sayt-link'))
       .forEach(element => element.classList.remove('active'));
   }
+
+  reset() {
+    this.removeActiveClass();
+    this.resetSelected();
+  }
+
 }

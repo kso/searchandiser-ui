@@ -94,25 +94,21 @@ export class Query {
 
   onPressEnter(cb: () => void) {
     this.searchBox.addEventListener('keydown', (event: KeyboardEvent) => {
-      const searchInput = this.tags['gb-sayt'].autocomplete.searchInput;
-      const selected = this.tags['gb-sayt'].autocomplete.selected
-      if (searchInput === selected || !this.saytKeydownHandler) {
-        this.queryKeydownHandler(event, cb);
-      } else {
-        this.saytKeydownHandler(event);
+      switch (event.keyCode) {
+        case ENTER_KEY:
+          if (this.tags['gb-sayt']) {
+            const autocomplete = this.tags['gb-sayt'].autocomplete;
+            const selected = autocomplete.selected
+            if (this.searchBox !== selected) {
+              (<HTMLElement>selected).click();
+              autocomplete.reset();
+            }
+          } else {
+            this.flux.emit('autocomplete:hide');
+            return cb();
+          }
       }
     });
   }
 
-  queryKeydownHandler(event: KeyboardEvent, cb: Function) {
-    // const searchInput = this.tags['gb-sayt'].autocomplete.searchInput;
-    // const selected = this.tags['gb-sayt'].autocomplete.selected
-    // if (searchInput === selected) {
-    switch (event.keyCode) {
-      case ENTER_KEY:
-        this.flux.emit('autocomplete:hide');
-        return cb();
-    }
-  }
-  // }
 }
