@@ -18,7 +18,7 @@ export class Autocomplete {
 
   constructor(public tag: Sayt) {
     this.selected = this.searchInput = findSearchBox();
-    this.searchInput.addEventListener('keydown', (event) => this.keyListener(event));
+    // this.searchInput.addEventListener('keydown', (event) => this.keyListener(event));
   }
 
   reset() {

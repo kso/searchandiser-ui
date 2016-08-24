@@ -49,7 +49,10 @@ export class Sayt {
       }
     });
 
-    this.on('mount', () => this.autocomplete = new Autocomplete(this));
+    this.on('mount', () => {
+      this.autocomplete = new Autocomplete(this);
+      findTag('gb-query')['_tag'].saytKeydownHandler = this.autocomplete.keyListener;
+    });
 
     this.flux.on('autocomplete', (originalQuery) => this.sayt.autocomplete(originalQuery)
       .then(({result}) => {

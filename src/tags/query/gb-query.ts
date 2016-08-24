@@ -14,6 +14,7 @@ export interface Query extends FluxTag {
 
 export class Query {
 
+  saytKeydownHandler: Function;
   parentOpts: any;
   queryParam: string;
   searchUrl: string;
@@ -95,13 +96,23 @@ export class Query {
     this.searchBox.addEventListener('keydown', (event: KeyboardEvent) => {
       const searchInput = this.tags['gb-sayt'].autocomplete.searchInput;
       const selected = this.tags['gb-sayt'].autocomplete.selected
-      if (searchInput === selected) {
-        switch (event.keyCode) {
-          case ENTER_KEY:
-            this.flux.emit('autocomplete:hide');
-            return cb();
-        }
+      if (searchInput === selected || !this.saytKeydownHandler) {
+        this.queryKeydownHandler(event, cb);
+      } else {
+        this.saytKeydownHandler(event);
       }
     });
   }
+
+  queryKeydownHandler(event: KeyboardEvent, cb: Function) {
+    // const searchInput = this.tags['gb-sayt'].autocomplete.searchInput;
+    // const selected = this.tags['gb-sayt'].autocomplete.selected
+    // if (searchInput === selected) {
+    switch (event.keyCode) {
+      case ENTER_KEY:
+        this.flux.emit('autocomplete:hide');
+        return cb();
+    }
+  }
+  // }
 }
